@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="us">
+<head>
+<meta charset="utf-8">
+<title>Bouncy test</title>
+<link href="css/smoothness/jquery-ui-1.9.2.custom.css" rel="stylesheet">
+<script src="js/jquery-1.8.3.js"></script>
+<script src="js/jquery-ui-1.9.2.custom.js"></script>
+<script>
+$(function() {
+    $('#clickme').click(function() {
+        var speed = 50;
+        $.each($('.book'), function (k, v) {
+            speed = speed + 250;
+            var fromTop = $(v).offset().top;
+            //move block to zero and drop it
+            $(v).css('top', 0 - $(v).offset().top);
+            $(v).css('position', 'relative');
+
+            $(v).animate({
+                top: 0
+            }, speed, 'easeOutBounce', function() {
+                // Animation complete.
+                $(v).css('position', '');
+            });
+        });
+    });
+});
+</script>
+<style>
+    #holder {
+        margin-left: 50px;
+        margin-top: 100px;
+    }
+    .book {
+        width: 100px;
+        height: 100px;
+    }
+</style>
+</head>
+<body>
+<div id="clickme">
+  Click here
+</div>
+<div id="holder">
+    <div class="book" src="book.png" alt="" style="background-color: yellow;">asdasd</div>
+    <div class="book" src="book.png" alt="" style="background-color: green;">asdasd</div>
+    <div class="book" src="book.png" alt="" style="background-color: blue;">asdasd</div>
+</div>
+</body>
+</html>
