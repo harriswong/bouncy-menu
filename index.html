@@ -9,6 +9,9 @@
 <script>
 $(function() {
     $('#clickme').click(function() {
+        $('#holder').slideToggle();
+        console.log($('#holder').is(":hidden"));
+        
         var speed = 50;
         $.each($('.book'), function (k, v) {
             speed = speed + 250;
@@ -43,9 +46,11 @@ $(function() {
   Click here
 </div>
 <div id="holder">
-    <div class="book" src="book.png" alt="" style="background-color: yellow;">asdasd</div>
-    <div class="book" src="book.png" alt="" style="background-color: green;">asdasd</div>
-    <div class="book" src="book.png" alt="" style="background-color: blue;">asdasd</div>
+    <ul>
+        <li><div class="book" src="book.png" alt="" style="background-color: yellow;">asdasd</div></li>
+        <li><div class="book" src="book.png" alt="" style="background-color: green;">asdasd</div></li>
+        <li><div class="book" src="book.png" alt="" style="background-color: blue;">asdasd</div></li>
+    </ul>
 </div>
 </body>
 </html>
